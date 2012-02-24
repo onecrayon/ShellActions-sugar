@@ -1,0 +1,274 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7A7FA5AD14F852B30079E541 /* NSMutableDictionary+OCSettingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7FA5AA14F852B30079E541 /* NSMutableDictionary+OCSettingAdditions.m */; };
+		7A7FA5AE14F852B30079E541 /* NSObject+OCTextActionContextAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7FA5AC14F852B30079E541 /* NSObject+OCTextActionContextAdditions.m */; };
+		7A7FA5B114F853500079E541 /* OCShellAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7FA5B014F853500079E541 /* OCShellAction.m */; };
+		7AD8EC0314F851CA00FDF9E7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AD8EC0214F851CA00FDF9E7 /* Cocoa.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		7A7FA5A914F852B30079E541 /* NSMutableDictionary+OCSettingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSMutableDictionary+OCSettingAdditions.h"; path = "Classes/NSMutableDictionary+OCSettingAdditions.h"; sourceTree = "<group>"; };
+		7A7FA5AA14F852B30079E541 /* NSMutableDictionary+OCSettingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSMutableDictionary+OCSettingAdditions.m"; path = "Classes/NSMutableDictionary+OCSettingAdditions.m"; sourceTree = "<group>"; };
+		7A7FA5AB14F852B30079E541 /* NSObject+OCTextActionContextAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+OCTextActionContextAdditions.h"; path = "Classes/NSObject+OCTextActionContextAdditions.h"; sourceTree = "<group>"; };
+		7A7FA5AC14F852B30079E541 /* NSObject+OCTextActionContextAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+OCTextActionContextAdditions.m"; path = "Classes/NSObject+OCTextActionContextAdditions.m"; sourceTree = "<group>"; };
+		7A7FA5AF14F853500079E541 /* OCShellAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OCShellAction.h; path = Classes/OCShellAction.h; sourceTree = "<group>"; };
+		7A7FA5B014F853500079E541 /* OCShellAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OCShellAction.m; path = Classes/OCShellAction.m; sourceTree = "<group>"; };
+		7AD8EBFF14F851CA00FDF9E7 /* ShellActions.sugar */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShellActions.sugar; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AD8EC0214F851CA00FDF9E7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		7AD8EC0614F851CA00FDF9E7 /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
+		7AD8EC0714F851CA00FDF9E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7AD8EBFB14F851CA00FDF9E7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7AD8EC0314F851CA00FDF9E7 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7A7FA5A814F852960079E541 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				7A7FA5A914F852B30079E541 /* NSMutableDictionary+OCSettingAdditions.h */,
+				7A7FA5AA14F852B30079E541 /* NSMutableDictionary+OCSettingAdditions.m */,
+				7A7FA5AB14F852B30079E541 /* NSObject+OCTextActionContextAdditions.h */,
+				7A7FA5AC14F852B30079E541 /* NSObject+OCTextActionContextAdditions.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		7AD8EBF314F851CA00FDF9E7 = {
+			isa = PBXGroup;
+			children = (
+				7AD8EC0414F851CA00FDF9E7 /* ShellActions */,
+				7AD8EC0114F851CA00FDF9E7 /* Frameworks */,
+				7AD8EC0014F851CA00FDF9E7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7AD8EC0014F851CA00FDF9E7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7AD8EBFF14F851CA00FDF9E7 /* ShellActions.sugar */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7AD8EC0114F851CA00FDF9E7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7AD8EC0214F851CA00FDF9E7 /* Cocoa.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7AD8EC0414F851CA00FDF9E7 /* ShellActions */ = {
+			isa = PBXGroup;
+			children = (
+				7A7FA5AF14F853500079E541 /* OCShellAction.h */,
+				7A7FA5B014F853500079E541 /* OCShellAction.m */,
+				7A7FA5A814F852960079E541 /* Categories */,
+				7AD8EC0814F851CA00FDF9E7 /* XML Based */,
+				7AD8EC0514F851CA00FDF9E7 /* Supporting Files */,
+			);
+			path = ShellActions;
+			sourceTree = "<group>";
+		};
+		7AD8EC0514F851CA00FDF9E7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7AD8EC0614F851CA00FDF9E7 /* Prefix.pch */,
+				7AD8EC0714F851CA00FDF9E7 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7AD8EC0814F851CA00FDF9E7 /* XML Based */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "XML Based";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7AD8EBFE14F851CA00FDF9E7 /* ShellActions */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7AD8EC0B14F851CA00FDF9E7 /* Build configuration list for PBXNativeTarget "ShellActions" */;
+			buildPhases = (
+				7AD8EBFA14F851CA00FDF9E7 /* Sources */,
+				7AD8EBFB14F851CA00FDF9E7 /* Frameworks */,
+				7AD8EBFC14F851CA00FDF9E7 /* Resources */,
+				7AD8EBFD14F851CA00FDF9E7 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ShellActions;
+			productName = ShellActions;
+			productReference = 7AD8EBFF14F851CA00FDF9E7 /* ShellActions.sugar */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7AD8EBF514F851CA00FDF9E7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = MacRabbit;
+			};
+			buildConfigurationList = 7AD8EBF814F851CA00FDF9E7 /* Build configuration list for PBXProject "ShellActions" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7AD8EBF314F851CA00FDF9E7;
+			productRefGroup = 7AD8EC0014F851CA00FDF9E7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7AD8EBFE14F851CA00FDF9E7 /* ShellActions */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7AD8EBFC14F851CA00FDF9E7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7AD8EBFD14F851CA00FDF9E7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Copy all files in the \"XML Based\" folder into the root of the final Sugar\nrsync -a --exclude=\".*\"  \"$SRCROOT/$PRODUCT_NAME/XML Based/\" \"$TARGET_BUILD_DIR/$WRAPPER_NAME/\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7AD8EBFA14F851CA00FDF9E7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A7FA5AD14F852B30079E541 /* NSMutableDictionary+OCSettingAdditions.m in Sources */,
+				7A7FA5AE14F852B30079E541 /* NSObject+OCTextActionContextAdditions.m in Sources */,
+				7A7FA5B114F853500079E541 /* OCShellAction.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		7AD8EC0914F851CA00FDF9E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_PREPROCESSOR_DEFINITIONS = NS_BUILD_32_LIKE_64;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		7AD8EC0A14F851CA00FDF9E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_PREPROCESSOR_DEFINITIONS = NS_BUILD_32_LIKE_64;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		7AD8EC0C14F851CA00FDF9E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(ESPRESSO_PATH)/Contents/MacOS/Espresso";
+				COPY_PHASE_STRIP = NO;
+				ESPRESSO_PATH = /Applications/Espresso.app;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ShellActions/Prefix.pch;
+				HEADER_SEARCH_PATHS = "$(ESPRESSO_PATH)/Contents/Headers";
+				INFOPLIST_FILE = ShellActions/Info.plist;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = sugar;
+			};
+			name = Debug;
+		};
+		7AD8EC0D14F851CA00FDF9E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(ESPRESSO_PATH)/Contents/MacOS/Espresso";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ESPRESSO_PATH = /Applications/Espresso.app;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ShellActions/Prefix.pch;
+				HEADER_SEARCH_PATHS = "$(ESPRESSO_PATH)/Contents/Headers";
+				INFOPLIST_FILE = ShellActions/Info.plist;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = sugar;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7AD8EBF814F851CA00FDF9E7 /* Build configuration list for PBXProject "ShellActions" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7AD8EC0914F851CA00FDF9E7 /* Debug */,
+				7AD8EC0A14F851CA00FDF9E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7AD8EC0B14F851CA00FDF9E7 /* Build configuration list for PBXNativeTarget "ShellActions" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7AD8EC0C14F851CA00FDF9E7 /* Debug */,
+				7AD8EC0D14F851CA00FDF9E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7AD8EBF514F851CA00FDF9E7 /* Project object */;
+}
