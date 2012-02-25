@@ -426,6 +426,7 @@ static void *threadFunction(NSPipe *pipe) {
 	if ([[NSFileManager defaultManager] fileExistsAtPath:targetPath]) {
 		return targetPath;
 	}
+	return nil;
 }
 
 - (NSString *)runScriptWithInput:(NSString *)inputStr {
