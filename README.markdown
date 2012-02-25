@@ -80,7 +80,9 @@ You may write your shell script in whatever language you prefer. Regardless of l
 * Neither STDIN nor any environment variable is ever escaped for use on the shell! So be careful if you are working with bash/sh/etc. and anything could potentially have a space, quotation mark, or other character with special meaning
 * Environment variables that for whatever reason do not have any contents for this particular action will be empty strings, but they will still exist
 
-The following **environment variables** are available to all scripts:
+#### Environment variables
+
+The following environment variables are available to all scripts:
 
 * _EDITOR\_SUGAR\_PATH_: the path to the root of the action's Sugar
 * _EDITOR\_DIRECTORY\_PATH_: the path to the most specific possible context directory
