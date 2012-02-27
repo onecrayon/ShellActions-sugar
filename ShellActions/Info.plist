@@ -12,5 +12,7 @@
 	<string>BNDL</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
+	<key>MREspressoMinVersion</key>
+	<string>2.0.0</string>
 </dict>
 </plist>
