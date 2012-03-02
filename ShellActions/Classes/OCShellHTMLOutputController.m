@@ -3,7 +3,7 @@
 //  ShellActions
 //
 //  Created by Ian Beck on 2/29/12.
-//  Copyright 2012 MacRabbit. All rights reserved.
+//  Copyright 2012 Ian Beck. MIT license.
 //
 
 #import "OCShellHTMLOutputController.h"
