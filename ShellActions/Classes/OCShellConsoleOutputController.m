@@ -37,4 +37,11 @@ static OCShellConsoleOutputController *sharedObject = nil;
 	[outputText clearContents];
 }
 
+#pragma mark Window delegate methods
+
+- (void)windowWillClose:(NSNotification *)theNotification {
+	// Clear out our console when the window closes
+	[outputText clearContents];
+}
+
 @end

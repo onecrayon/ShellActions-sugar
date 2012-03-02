@@ -413,7 +413,7 @@ static void *threadFunction(NSPipe *pipe) {
 		}
 	}
 	
-	// TODO: handle "console" output type with our finalOutput variable
+	// Handle HTML and console output types
 	if ([output isEqualToString:@"html"] && [finalOutput length] > 0) {
 		[[OCShellHTMLOutputController sharedController] loadSource:finalOutput withBaseURL:bundlePath];
 	} else if ([output isEqualToString:@"console"] && [finalOutput length] > 0) {

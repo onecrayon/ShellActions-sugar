@@ -31,12 +31,6 @@ static OCShellHTMLOutputController *sharedObject = nil;
     [super dealloc];
 }
 
-- (void)windowDidLoad {
-    [super windowDidLoad];
-    
-    // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
-}
-
 - (void)loadSource:(NSString *)htmlSource withBaseURL:(NSString *)basePath {
 	// Set the default font sizes to the browser defaults (since otherwise it defaults to 12pt for some reason)
 	if ([[webView preferences] defaultFontSize] != 16) {
@@ -66,7 +60,7 @@ static OCShellHTMLOutputController *sharedObject = nil;
 	}];
 }
 
-#pragma FrameLoadDelegate methods
+#pragma mark FrameLoadDelegate methods
 
 // Notify that the page is loading via the titlebar
 - (void)webView:(WebView *)sender didStartProvisionalLoadForFrame:(WebFrame *)frame {
@@ -84,7 +78,7 @@ static OCShellHTMLOutputController *sharedObject = nil;
 	[saveSourceButton setEnabled:YES];
 }
 
-#pragma WebPolicyDelegate methods
+#pragma mark WebPolicyDelegate methods
 
 // Force all links to open in the user's default browser
 - (void)webView:(WebView *)sender decidePolicyForNavigationAction:(NSDictionary *)actionInformation request:(NSURLRequest *)request frame:(WebFrame *)frame decisionListener:(id<WebPolicyDecisionListener>)listener {

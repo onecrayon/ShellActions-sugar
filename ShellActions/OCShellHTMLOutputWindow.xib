@@ -59,7 +59,7 @@
 			<object class="NSWindowTemplate" id="1005">
 				<int key="NSWindowStyleMask">4111</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{196, 240}, {677, 483}}</string>
+				<string key="NSWindowRect">{{714, 311}, {677, 483}}</string>
 				<int key="NSWTFlags">544736256</int>
 				<string key="NSWindowTitle">Window</string>
 				<string key="NSWindowClass">NSWindow</string>
@@ -101,7 +101,7 @@
 										<int key="NSCellFlags">-2080244224</int>
 										<int key="NSCellFlags2">134217728</int>
 										<string key="NSContents">Save Source...</string>
-										<object class="NSFont" key="NSSupport" id="497436859">
+										<object class="NSFont" key="NSSupport" id="342246794">
 											<string key="NSName">LucidaGrande</string>
 											<double key="NSSize">13</double>
 											<int key="NSfFlags">1044</int>
@@ -267,26 +267,26 @@
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1920, 1178}}</string>
 				<string key="NSMaxSize">{1e+13, 1e+13}</string>
+				<string key="NSFrameAutosaveName">OCShellHTMLOutputWindow</string>
 			</object>
-			<object class="NSCustomView" id="208143895">
+			<object class="NSCustomView" id="219753895">
 				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">268</int>
 				<object class="NSMutableArray" key="NSSubviews">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<object class="NSButton" id="275500163">
-						<reference key="NSNextResponder" ref="208143895"/>
+					<object class="NSButton" id="105827110">
+						<reference key="NSNextResponder" ref="219753895"/>
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{18, 18}, {210, 18}}</string>
-						<reference key="NSSuperview" ref="208143895"/>
-						<reference key="NSWindow"/>
+						<reference key="NSSuperview" ref="219753895"/>
 						<reference key="NSNextKeyView"/>
 						<bool key="NSEnabled">YES</bool>
-						<object class="NSButtonCell" key="NSCell" id="552640371">
+						<object class="NSButtonCell" key="NSCell" id="508251689">
 							<int key="NSCellFlags">67239424</int>
 							<int key="NSCellFlags2">0</int>
 							<string key="NSContents">Open in Espresso after saving</string>
-							<reference key="NSSupport" ref="497436859"/>
-							<reference key="NSControlView" ref="275500163"/>
+							<reference key="NSSupport" ref="342246794"/>
+							<reference key="NSControlView" ref="105827110"/>
 							<int key="NSButtonFlags">1211912703</int>
 							<int key="NSButtonFlags2">2</int>
 							<object class="NSCustomResource" key="NSNormalImage">
@@ -305,8 +305,7 @@
 				</object>
 				<string key="NSFrameSize">{246, 54}</string>
 				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView" ref="275500163"/>
+				<reference key="NSNextKeyView" ref="105827110"/>
 				<string key="NSClassName">NSView</string>
 			</object>
 		</object>
@@ -365,7 +364,7 @@
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">openInEspressoCheckbox</string>
 						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="275500163"/>
+						<reference key="destination" ref="105827110"/>
 					</object>
 					<int key="connectionID">49</int>
 				</object>
@@ -373,7 +372,7 @@
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">saveAccessories</string>
 						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="208143895"/>
+						<reference key="destination" ref="219753895"/>
 					</object>
 					<int key="connectionID">50</int>
 				</object>
@@ -475,26 +474,26 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">46</int>
-						<reference key="object" ref="208143895"/>
+						<reference key="object" ref="219753895"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="275500163"/>
+							<reference ref="105827110"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">47</int>
-						<reference key="object" ref="275500163"/>
+						<reference key="object" ref="105827110"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="552640371"/>
+							<reference ref="508251689"/>
 						</object>
-						<reference key="parent" ref="208143895"/>
+						<reference key="parent" ref="219753895"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">48</int>
-						<reference key="object" ref="552640371"/>
-						<reference key="parent" ref="275500163"/>
+						<reference key="object" ref="508251689"/>
+						<reference key="parent" ref="105827110"/>
 					</object>
 				</object>
 			</object>
@@ -505,6 +504,8 @@
 					<string>-1.IBPluginDependency</string>
 					<string>-2.IBPluginDependency</string>
 					<string>-3.IBPluginDependency</string>
+					<string>1.IBNSWindowAutoPositionCentersHorizontal</string>
+					<string>1.IBNSWindowAutoPositionCentersVertical</string>
 					<string>1.IBPluginDependency</string>
 					<string>1.IBWindowTemplateEditedContentRect</string>
 					<string>1.NSWindowTemplate.visibleAtLaunch</string>
@@ -526,6 +527,8 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<boolean value="NO"/>
+					<boolean value="NO"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>{{357, 418}, {480, 270}}</string>
 					<boolean value="NO"/>

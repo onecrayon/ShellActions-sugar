@@ -57,7 +57,9 @@ static NSMutableDictionary *textAttr = nil;
 		attrStr = [[NSAttributedString alloc] initWithString:[str stringByTrimmingWhitespaceAndNewlines] attributes:textAttr];
 	}
 	// Append our string!
+	[[self textStorage] beginEditing];
 	[[self textStorage] appendAttributedString:attrStr];
+	[[self textStorage] endEditing];
 	// Scroll to the beginning of our new text if there previously was text (compensating for the linebreaks)
 	if (originalEnd > 0) {
 		[self scrollRangeToVisible:NSMakeRange(originalEnd + 2, 0)];
@@ -67,7 +69,7 @@ static NSMutableDictionary *textAttr = nil;
 
 - (void)clearContents {
 	// Clear out all contents
-	[[self textStorage] setAttributedString:[[NSAttributedString alloc] initWithString:@"" attributes:textAttr]];
+	[[self textStorage] deleteCharactersInRange:NSMakeRange(0, [[self textStorage] length])];
 	// Reset the scroll position
 	[self scrollRangeToVisible:NSMakeRange(0, 0)];
 }
