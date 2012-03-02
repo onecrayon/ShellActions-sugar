@@ -65,6 +65,7 @@
  *       * Multiple ranges can be separated by linebreaks or &:
  *         0,10&12,5
  *   - log: STDOUT will be output straight to the Console (using NSLog)
+ *   - html: STDOUT will be rendered as HTML in a new window
  *   - nothing: STDOUT will be ignored
  * - <output-format>: the format that your script will output if overwriting text
  *   in the document. Accepts:
@@ -83,6 +84,8 @@
  * - EDITOR_PROJECT_PATH: the path to the root project folder
  * - EDITOR_PATH: the path to the active file (only available in FileActions if
  *   there is only a single file)
+ * - EDITOR_FILENAME: the filename of the active file (only available if EDITOR_PATH
+     is set)
  * 
  * TextAction environment variables:
  * - EDITOR_CURRENT_WORD: the word around the cursor
@@ -100,10 +103,9 @@
  *   characters are selected, this will be "0,10" (without the quotes)
  * 
  * TODO:
+ * - Hook up the OCShellHTMLOutputWindow back/forward/save source button logic
  * - Add support for "console" output style (requires UI). Idea for docs:
  *   - console: STDOUT will be displayed as plain text in a new window
- * - Add support for "html" output style (requires UI). Idea for docs:
- *   - html: STDOUT will be rendered as HTML in a new window
  * - Add better error handling. If an error is detected/thrown, the action needs
  *   to ensure that it exits cleanly
  */

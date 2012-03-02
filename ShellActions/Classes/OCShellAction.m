@@ -9,6 +9,7 @@
 #import "OCShellAction.h"
 #import "NSObject+OCTextActionContextAdditions.h"
 #import "NSMutableDictionary+OCSettingAdditions.h"
+#import "OCShellHTMLOutputController.h"
 
 #import <EspressoTextActions.h>
 #import <EspressoTextCore.h>
@@ -228,6 +229,7 @@ static void *threadFunction(NSPipe *pipe) {
 	[env addObjectOrEmptyString:eDirectoryPath forKey:@"EDITOR_DIRECTORY_PATH"];
 	[env addObjectOrEmptyString:eProjectPath forKey:@"EDITOR_PROJECT_PATH"];
 	[env addObjectOrEmptyString:ePath forKey:@"EDITOR_PATH"];
+	[env addObjectOrEmptyString:[ePath lastPathComponent] forKey:@"EDITOR_FILENAME"];
 	
 	// We'll save our ultimate response and return it at the end
 	BOOL response = YES;
@@ -410,7 +412,10 @@ static void *threadFunction(NSPipe *pipe) {
 		}
 	}
 	
-	// TODO: handle "console" and "html" output types with our finalOutput variable
+	// TODO: handle "console" output type with our finalOutput variable
+	if ([output isEqualToString:@"html"]) {
+		[[OCShellHTMLOutputController sharedController] loadSource:finalOutput withBaseURL:bundlePath];
+	}
 	
 	// Release our static variables
 	[env release];
