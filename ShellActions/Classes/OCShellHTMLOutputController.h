@@ -13,21 +13,20 @@
 @interface OCShellHTMLOutputController : NSWindowController {
 @private
     WebView *webView;
-	NSSegmentedControl *navigateButtons;
-	NSButton *reloadButton;
-	NSButton *browserButton;
+	NSButton *saveSourceButton;
+	NSButton *openInEspressoCheckbox;
+	NSView *saveAccessories;
 }
 
 @property (retain) IBOutlet WebView *webView;
-@property (retain) IBOutlet NSSegmentedControl *navigateButtons;
-@property (retain) IBOutlet NSButton *reloadButton;
-@property (retain) IBOutlet NSButton *browserButton;
+@property (retain) IBOutlet NSButton *saveSourceButton;
+@property (retain) IBOutlet NSButton *openInEspressoCheckbox;
+@property (retain) IBOutlet NSView *saveAccessories;
 
 + (id)sharedController;
 
 - (void)loadSource:(NSString *)htmlSource withBaseURL:(NSString *)basePath;
 
-- (IBAction)navigateWebview:(id)sender;
 - (IBAction)saveHTMLAs:(id)sender;
 
 @end
