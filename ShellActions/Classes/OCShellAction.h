@@ -67,6 +67,7 @@
  *   - log: STDOUT will be output straight to the Console (using NSLog)
  *   - html: STDOUT will be rendered as HTML in a new window. Any relative links
  *     will resolve using EDITOR_SUGAR_PATH as the base URL
+ *   - console: STDOUT will be displayed as plain text in a new window
  *   - nothing: STDOUT will be ignored
  * - <output-format>: the format that your script will output if overwriting text
  *   in the document. Accepts:
@@ -104,8 +105,6 @@
  *   characters are selected, this will be "0,10" (without the quotes)
  * 
  * TODO:
- * - Add support for "console" output style (requires UI). Idea for docs:
- *   - console: STDOUT will be displayed as plain text in a new window
  * - Add better error handling. If an error is detected/thrown, the action needs
  *   to ensure that it exits cleanly
  */

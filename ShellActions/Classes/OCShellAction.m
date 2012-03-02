@@ -10,6 +10,7 @@
 #import "NSObject+OCTextActionContextAdditions.h"
 #import "NSMutableDictionary+OCSettingAdditions.h"
 #import "OCShellHTMLOutputController.h"
+#import "OCShellConsoleOutputController.h"
 
 #import <EspressoTextActions.h>
 #import <EspressoTextCore.h>
@@ -413,8 +414,10 @@ static void *threadFunction(NSPipe *pipe) {
 	}
 	
 	// TODO: handle "console" output type with our finalOutput variable
-	if ([output isEqualToString:@"html"]) {
+	if ([output isEqualToString:@"html"] && [finalOutput length] > 0) {
 		[[OCShellHTMLOutputController sharedController] loadSource:finalOutput withBaseURL:bundlePath];
+	} else if ([output isEqualToString:@"console"] && [finalOutput length] > 0) {
+		[[OCShellConsoleOutputController sharedController] displayString:finalOutput];
 	}
 	
 	// Release our static variables

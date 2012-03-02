@@ -12,6 +12,8 @@
 		7A7FA5AE14F852B30079E541 /* NSObject+OCTextActionContextAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7FA5AC14F852B30079E541 /* NSObject+OCTextActionContextAdditions.m */; };
 		7A7FA5B114F853500079E541 /* OCShellAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7FA5B014F853500079E541 /* OCShellAction.m */; };
 		7AB5CD70150149E6007B3F02 /* OCShellConsoleOutputWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AB5CD6F150149E6007B3F02 /* OCShellConsoleOutputWindow.xib */; };
+		7AB5CD7315014B76007B3F02 /* OCShellConsoleOutputController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB5CD7215014B76007B3F02 /* OCShellConsoleOutputController.m */; };
+		7AB5CD7C15014F59007B3F02 /* OCShellConsoleTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB5CD7B15014F59007B3F02 /* OCShellConsoleTextView.m */; };
 		7AC981BE14FEAB5100EB787A /* OCShellHTMLOutputController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC981BD14FEAB5100EB787A /* OCShellHTMLOutputController.m */; };
 		7AC981C714FEAD6000EB787A /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AC981C614FEAD6000EB787A /* WebKit.framework */; };
 		7AD8EC0314F851CA00FDF9E7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AD8EC0214F851CA00FDF9E7 /* Cocoa.framework */; };
@@ -26,6 +28,10 @@
 		7A7FA5AF14F853500079E541 /* OCShellAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OCShellAction.h; path = Classes/OCShellAction.h; sourceTree = "<group>"; };
 		7A7FA5B014F853500079E541 /* OCShellAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OCShellAction.m; path = Classes/OCShellAction.m; sourceTree = "<group>"; };
 		7AB5CD6F150149E6007B3F02 /* OCShellConsoleOutputWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OCShellConsoleOutputWindow.xib; sourceTree = "<group>"; };
+		7AB5CD7115014B76007B3F02 /* OCShellConsoleOutputController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OCShellConsoleOutputController.h; path = Classes/OCShellConsoleOutputController.h; sourceTree = "<group>"; };
+		7AB5CD7215014B76007B3F02 /* OCShellConsoleOutputController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OCShellConsoleOutputController.m; path = Classes/OCShellConsoleOutputController.m; sourceTree = "<group>"; };
+		7AB5CD7A15014F59007B3F02 /* OCShellConsoleTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OCShellConsoleTextView.h; path = Classes/OCShellConsoleTextView.h; sourceTree = "<group>"; };
+		7AB5CD7B15014F59007B3F02 /* OCShellConsoleTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OCShellConsoleTextView.m; path = Classes/OCShellConsoleTextView.m; sourceTree = "<group>"; };
 		7AC981BC14FEAB5100EB787A /* OCShellHTMLOutputController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OCShellHTMLOutputController.h; path = Classes/OCShellHTMLOutputController.h; sourceTree = "<group>"; };
 		7AC981BD14FEAB5100EB787A /* OCShellHTMLOutputController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OCShellHTMLOutputController.m; path = Classes/OCShellHTMLOutputController.m; sourceTree = "<group>"; };
 		7AC981C614FEAD6000EB787A /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -100,6 +106,10 @@
 				7A7FA5B014F853500079E541 /* OCShellAction.m */,
 				7AC981BC14FEAB5100EB787A /* OCShellHTMLOutputController.h */,
 				7AC981BD14FEAB5100EB787A /* OCShellHTMLOutputController.m */,
+				7AB5CD7115014B76007B3F02 /* OCShellConsoleOutputController.h */,
+				7AB5CD7215014B76007B3F02 /* OCShellConsoleOutputController.m */,
+				7AB5CD7A15014F59007B3F02 /* OCShellConsoleTextView.h */,
+				7AB5CD7B15014F59007B3F02 /* OCShellConsoleTextView.m */,
 				7A7FA5A814F852960079E541 /* Categories */,
 				7AD8EC0814F851CA00FDF9E7 /* XML Based */,
 				7AC981C514FEABEF00EB787A /* Other Sources */,
@@ -208,6 +218,8 @@
 				7A7FA5AE14F852B30079E541 /* NSObject+OCTextActionContextAdditions.m in Sources */,
 				7A7FA5B114F853500079E541 /* OCShellAction.m in Sources */,
 				7AC981BE14FEAB5100EB787A /* OCShellHTMLOutputController.m in Sources */,
+				7AB5CD7315014B76007B3F02 /* OCShellConsoleOutputController.m in Sources */,
+				7AB5CD7C15014F59007B3F02 /* OCShellConsoleTextView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
