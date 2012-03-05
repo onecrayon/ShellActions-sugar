@@ -82,10 +82,16 @@ static OCShellHTMLOutputController *sharedObject = nil;
 
 // Force all links to open in the user's default browser
 - (void)webView:(WebView *)sender decidePolicyForNavigationAction:(NSDictionary *)actionInformation request:(NSURLRequest *)request frame:(WebFrame *)frame decisionListener:(id<WebPolicyDecisionListener>)listener {
-	if ([[actionInformation objectForKey:WebActionNavigationTypeKey] intValue] != WebNavigationTypeOther) {
+	if ([[actionInformation objectForKey:WebActionNavigationTypeKey] intValue] != WebNavigationTypeOther && [[[actionInformation objectForKey:WebActionOriginalURLKey] path] isEqualToString:@"/"] && [[actionInformation objectForKey:WebActionOriginalURLKey] fragment] != nil) {
+		// We are loading a URL fragment (for same-page navigation); have to use Javascript because otherwise it reloads the whole page
+		[listener ignore];
+		[sender stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"window.location.hash = '%@';", [[actionInformation objectForKey:WebActionOriginalURLKey] fragment]]];
+	} else if ([[actionInformation objectForKey:WebActionNavigationTypeKey] intValue] != WebNavigationTypeOther) {
+		// Loading a normal link, form, etc.; re-route to the browser
 		[listener ignore];
 		[[NSWorkspace sharedWorkspace] openURL:[request URL]];
 	} else {
+		// Default to just loading the request
 		[listener use];
 	}
 }
