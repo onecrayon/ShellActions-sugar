@@ -235,7 +235,7 @@ static void *threadFunction(NSPipe *pipe) {
 	// We'll save our ultimate response and return it at the end
 	BOOL response = YES;
 	// We might need to display output to the user via GUI at the end of things
-	NSString *finalOutput;
+	NSString *finalOutput = nil;
 	
 	// Process our action, depending on if it is a TextAction or a FileAction
 	if (isTextAction) {
@@ -266,7 +266,7 @@ static void *threadFunction(NSPipe *pipe) {
 		NSString *inputStr;
 		NSString *outputStr;
 		NSMutableString *aggregateOutput = [NSMutableString string];
-		NSRange aggregateRange;
+		NSRange aggregateRange = NSMakeRange(0, 0);
 		BOOL multipleSelectionsToSnippet = NO;
 		NSMutableString *interimText;
 		for (NSValue *rangeValue in ranges) {

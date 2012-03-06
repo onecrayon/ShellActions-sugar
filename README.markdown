@@ -6,7 +6,7 @@ ShellActions.sugar enables you to add custom text and file actions to Espresso w
 
 **Requires Espresso 2**
 
-1. [Download ShellActions.sugar](http://onecrayon.com/downloads/ShellActions.sugar.zip)
+1. [Download ShellActions.sugar](https://github.com/downloads/onecrayon/ShellActions-sugar/ShellActions.sugar.zip)
 2. Unzip the downloaded file (if your browser doesn't do it for you)
 3. Double click the ShellActions.sugar file to install it
 
