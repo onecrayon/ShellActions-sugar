@@ -73,12 +73,12 @@ static void *threadFunction(NSPipe *pipe) {
 	
 	while (((outputData = [[outPipe fileHandleForReading] availableData]) && [outputData length]) || ((errData = [[errPipe fileHandleForReading] availableData]) && [errData length])) {
 		if ([outputData length]) {
-			str = [[NSString alloc] initWithFormat:@"%.*s", [outputData length], [outputData bytes]];
+			str = [[NSString alloc] initWithData:outputData encoding:NSUTF8StringEncoding];
 			[outString appendString:str];
 			[str release];
 		}
 		if ([errData length]) {
-			str = [[NSString alloc] initWithFormat:@"%.*s", [errData length], [errData bytes]];
+			str = [[NSString alloc] initWithData:errData encoding:NSUTF8StringEncoding];
 			[errString appendString:str];
 			[str release];
 		}
@@ -297,9 +297,11 @@ static void *threadFunction(NSPipe *pipe) {
 					if ([alternate isEqualToString:@"document"]) {
 						// Use the document's context as the input
 						inputStr = [context string];
+						range = NSMakeRange(0, [[context string] length]);
 					} else if ([alternate isEqualToString:@"line"]) {
 						// Use the current line's content as the input
-						inputStr = [[context string] substringWithRange:[[context lineStorage] lineRangeForLineNumber:eLineNumber]];
+						range = [[context lineStorage] lineRangeForLineNumber:eLineNumber];
+						inputStr = [[context string] substringWithRange:range];
 					} else if ([alternate isEqualToString:@"word"]) {
 						// Use the current word as the input
 						range = wordRange;
