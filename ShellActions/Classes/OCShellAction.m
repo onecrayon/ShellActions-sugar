@@ -232,6 +232,14 @@ static void *threadFunction(NSPipe *pipe) {
 	[env addObjectOrEmptyString:ePath forKey:@"EDITOR_PATH"];
 	[env addObjectOrEmptyString:[ePath lastPathComponent] forKey:@"EDITOR_FILENAME"];
 	
+	if ([[NSFileManager defaultManager] fileExistsAtPath:[bundlePath stringByAppendingPathComponent:@"ScriptLibraries"]]) {
+		// We have a ScriptLibraries folder, so add it to our PATH
+		[env addObjectOrEmptyString:[NSString stringWithFormat:@"%@:%@", [bundlePath stringByAppendingPathComponent:@"ScriptLibraries"], @"/usr/gnu/bin:/usr/local/bin:/bin:/usr/bin:."] forKey:@"PATH"];
+		// Also make sure that Python and Ruby can import/require items from ScriptLibraries
+		[env addObjectOrEmptyString:[bundlePath stringByAppendingPathComponent:@"ScriptLibraries"] forKey:@"PYTHONPATH"];
+		[env addObjectOrEmptyString:[bundlePath stringByAppendingPathComponent:@"ScriptLibraries"] forKey:@"RUBYLIB"];
+	}
+	
 	// We'll save our ultimate response and return it at the end
 	BOOL response = YES;
 	// We might need to display output to the user via GUI at the end of things

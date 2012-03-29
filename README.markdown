@@ -88,6 +88,7 @@ You may write your shell script in whatever language you prefer. Regardless of l
 * FileActions will be executed a single time, and receive a linebreak-delimited list of selected files via STDIN
 * Neither STDIN nor any environment variable is ever escaped for use on the shell! So be careful if you are working with bash/sh/etc. as anything in STDIN could potentially have a space, quotation mark, or other character with special meaning
 * Environment variables that for whatever reason do not have any contents for this particular action will be empty strings, but they will still exist
+* If your Sugar contains a `ScriptLibraries` folder, it will automatically be included in the $PATH, and Python or Ruby scripts should be able to lookup modules there using `import` and `require`, respectively
 
 #### Environment variables
 
