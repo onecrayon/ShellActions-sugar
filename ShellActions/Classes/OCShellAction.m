@@ -147,8 +147,9 @@ static void *threadFunction(NSPipe *pipe) {
 	MRRelease(input);
 	MRRelease(alternate);
 	MRRelease(output);
+	MRRelease(outputFormat);
 	MRRelease(bundlePath);
-    [super dealloc];
+	[super dealloc];
 }
 
 - (BOOL)canPerformActionWithContext:(id)context {
@@ -280,7 +281,7 @@ static void *threadFunction(NSPipe *pipe) {
 		for (NSValue *rangeValue in ranges) {
 			range = [rangeValue rangeValue];
 			// Setup our per-loop environment variables
-			NSString *eCurrentWord = [context getWordAtIndex:range.location range:&wordRange];
+			eCurrentWord = [context getWordAtIndex:range.location range:&wordRange];
 			[env addObjectOrEmptyString:eCurrentWord forKey:@"EDITOR_CURRENT_WORD"];
 			[env addObjectOrEmptyString:[[context string] substringWithRange:[[context lineStorage] lineRangeForRange:NSMakeRange(range.location, 0)]] forKey:@"EDITOR_CURRENT_LINE"];
 			eLineNumber = [[context lineStorage] lineNumberForIndex:range.location];
