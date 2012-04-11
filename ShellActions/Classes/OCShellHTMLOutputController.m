@@ -28,6 +28,10 @@ static OCShellHTMLOutputController *sharedObject = nil;
 
 - (void)dealloc {
 	MRRelease(sharedObject);
+	MRRelease(webView);
+	MRRelease(saveSourceButton);
+	MRRelease(openInEspressoCheckbox);
+	MRRelease(saveAccessories);
     [super dealloc];
 }
 

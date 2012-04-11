@@ -25,6 +25,7 @@ static OCShellConsoleOutputController *sharedObject = nil;
 
 - (void)dealloc {
 	MRRelease(sharedObject);
+	MRRelease(outputText);
     [super dealloc];
 }
 
