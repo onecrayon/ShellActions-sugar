@@ -11,6 +11,7 @@
 #import "NSMutableDictionary+OCSettingAdditions.h"
 #import "OCShellHTMLOutputController.h"
 #import "OCShellConsoleOutputController.h"
+#import "OCShellTooltipOutputController.h"
 
 #import <EspressoTextActions.h>
 #import <EspressoTextCore.h>
@@ -369,8 +370,8 @@ static void *threadFunction(NSPipe *pipe) {
 			} else if ([output isEqualToString:@"log"]) {
 				NSLog(@"OCShellAction: Processing selection #%lu", (unsigned long)rangeNumber);
 				NSLog(@"%@", outputStr);
-			} else if ([output isEqualToString:@"console"] || [output isEqualToString:@"html"]) {
-				// If we are outputting to a console or HTML window, then just aggregate everything
+			} else if ([output isEqualToString:@"console"] || [output isEqualToString:@"html"] || [output isEqualToString:@"tooltip"]) {
+				// If we are outputting to a console, HTML window, or tooltip, then just aggregate everything
 				[aggregateOutput appendString:outputStr];
 			}
 			
@@ -402,6 +403,9 @@ static void *threadFunction(NSPipe *pipe) {
 		} else if ([output isEqualToString:@"console"] || [output isEqualToString:@"html"]) {
 			// Save our aggregateOutput into the finalOutput variable (process this outside of the conditional, since it's identical for both types of actions
 			finalOutput = aggregateOutput;
+		} else if ([output isEqualToString:@"tooltip"] && [aggregateOutput length] > 0) {
+			// Show a tooltip!
+			[[OCShellTooltipOutputController sharedController] displayString:aggregateOutput inContext:context];
 		}
 	} else {
 		// Prep our list of selected URLs

@@ -17,6 +17,9 @@
 		7AC981BE14FEAB5100EB787A /* OCShellHTMLOutputController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC981BD14FEAB5100EB787A /* OCShellHTMLOutputController.m */; };
 		7AC981C714FEAD6000EB787A /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AC981C614FEAD6000EB787A /* WebKit.framework */; };
 		7AD8EC0314F851CA00FDF9E7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AD8EC0214F851CA00FDF9E7 /* Cocoa.framework */; };
+		7AD8EC0D14F851CA00FDF9EB /* MAAttachedWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD8EC0D14F851CA00FDF9EA /* MAAttachedWindow.m */; };
+		7AD8EC0D14F851CA00FDF9F1 /* OCShellTooltipOutputController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD8EC0D14F851CA00FDF9F0 /* OCShellTooltipOutputController.m */; };
+		7AD8EC0D14F851CA00FDF9F3 /* OCShellTooltipOutputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AD8EC0D14F851CA00FDF9F2 /* OCShellTooltipOutputView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +42,11 @@
 		7AD8EC0214F851CA00FDF9E7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		7AD8EC0614F851CA00FDF9E7 /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		7AD8EC0714F851CA00FDF9E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7AD8EC0D14F851CA00FDF9E9 /* MAAttachedWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MAAttachedWindow.h; path = "Third Party/MAAttachedWindow.h"; sourceTree = "<group>"; };
+		7AD8EC0D14F851CA00FDF9EA /* MAAttachedWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MAAttachedWindow.m; path = "Third Party/MAAttachedWindow.m"; sourceTree = "<group>"; };
+		7AD8EC0D14F851CA00FDF9EF /* OCShellTooltipOutputController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OCShellTooltipOutputController.h; path = Classes/OCShellTooltipOutputController.h; sourceTree = "<group>"; };
+		7AD8EC0D14F851CA00FDF9F0 /* OCShellTooltipOutputController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OCShellTooltipOutputController.m; path = Classes/OCShellTooltipOutputController.m; sourceTree = "<group>"; };
+		7AD8EC0D14F851CA00FDF9F2 /* OCShellTooltipOutputView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OCShellTooltipOutputView.xib; path = Classes/OCShellTooltipOutputView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +110,8 @@
 		7AD8EC0414F851CA00FDF9E7 /* ShellActions */ = {
 			isa = PBXGroup;
 			children = (
+				7AD8EC0D14F851CA00FDF9F0 /* OCShellTooltipOutputController.m */,
+				7AD8EC0D14F851CA00FDF9EF /* OCShellTooltipOutputController.h */,
 				7A7FA5AF14F853500079E541 /* OCShellAction.h */,
 				7A7FA5B014F853500079E541 /* OCShellAction.m */,
 				7AC981BC14FEAB5100EB787A /* OCShellHTMLOutputController.h */,
@@ -114,6 +124,7 @@
 				7AD8EC0814F851CA00FDF9E7 /* XML Based */,
 				7AC981C514FEABEF00EB787A /* Other Sources */,
 				7AD8EC0514F851CA00FDF9E7 /* Resources */,
+				7AD8EC0D14F851CA00FDF9E8 /* Third Party */,
 			);
 			path = ShellActions;
 			sourceTree = "<group>";
@@ -121,6 +132,7 @@
 		7AD8EC0514F851CA00FDF9E7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7AD8EC0D14F851CA00FDF9F2 /* OCShellTooltipOutputView.xib */,
 				7A1BA5F614FEA1CA007860E6 /* OCShellHTMLOutputWindow.xib */,
 				7AB5CD6F150149E6007B3F02 /* OCShellConsoleOutputWindow.xib */,
 				7AD8EC0714F851CA00FDF9E7 /* Info.plist */,
@@ -133,6 +145,15 @@
 			children = (
 			);
 			path = "XML Based";
+			sourceTree = "<group>";
+		};
+		7AD8EC0D14F851CA00FDF9E8 /* Third Party */ = {
+			isa = PBXGroup;
+			children = (
+				7AD8EC0D14F851CA00FDF9EA /* MAAttachedWindow.m */,
+				7AD8EC0D14F851CA00FDF9E9 /* MAAttachedWindow.h */,
+			);
+			name = "Third Party";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,6 +209,7 @@
 			files = (
 				7A1BA5F714FEA1CA007860E6 /* OCShellHTMLOutputWindow.xib in Resources */,
 				7AB5CD70150149E6007B3F02 /* OCShellConsoleOutputWindow.xib in Resources */,
+				7AD8EC0D14F851CA00FDF9F3 /* OCShellTooltipOutputView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,6 +242,8 @@
 				7AC981BE14FEAB5100EB787A /* OCShellHTMLOutputController.m in Sources */,
 				7AB5CD7315014B76007B3F02 /* OCShellConsoleOutputController.m in Sources */,
 				7AB5CD7C15014F59007B3F02 /* OCShellConsoleTextView.m in Sources */,
+				7AD8EC0D14F851CA00FDF9EB /* MAAttachedWindow.m in Sources */,
+				7AD8EC0D14F851CA00FDF9F1 /* OCShellTooltipOutputController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
