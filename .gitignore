@@ -16,3 +16,6 @@ xcuserdata
 # svn & cvs
 .svn
 CVS
+
+# AppCode (IntelliJ) noise
+.idea/
