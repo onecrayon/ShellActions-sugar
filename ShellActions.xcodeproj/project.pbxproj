@@ -20,6 +20,7 @@
 		7AD8EC0D14F851CA00FDF9EB /* MAAttachedWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD8EC0D14F851CA00FDF9EA /* MAAttachedWindow.m */; };
 		7AD8EC0D14F851CA00FDF9F1 /* OCShellTooltipOutputController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD8EC0D14F851CA00FDF9F0 /* OCShellTooltipOutputController.m */; };
 		7AD8EC0D14F851CA00FDF9F3 /* OCShellTooltipOutputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AD8EC0D14F851CA00FDF9F2 /* OCShellTooltipOutputView.xib */; };
+		7AD8EC0D14F851CA00FDF9F6 /* NS(Attributed)String+Geometrics.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AD8EC0D14F851CA00FDF9F5 /* NS(Attributed)String+Geometrics.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,8 @@
 		7AD8EC0D14F851CA00FDF9EF /* OCShellTooltipOutputController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OCShellTooltipOutputController.h; path = Classes/OCShellTooltipOutputController.h; sourceTree = "<group>"; };
 		7AD8EC0D14F851CA00FDF9F0 /* OCShellTooltipOutputController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OCShellTooltipOutputController.m; path = Classes/OCShellTooltipOutputController.m; sourceTree = "<group>"; };
 		7AD8EC0D14F851CA00FDF9F2 /* OCShellTooltipOutputView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = OCShellTooltipOutputView.xib; path = Classes/OCShellTooltipOutputView.xib; sourceTree = "<group>"; };
+		7AD8EC0D14F851CA00FDF9F4 /* NS(Attributed)String+Geometrics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NS(Attributed)String+Geometrics.h"; path = "Third Party/NS(Attributed)String+Geometrics.h"; sourceTree = "<group>"; };
+		7AD8EC0D14F851CA00FDF9F5 /* NS(Attributed)String+Geometrics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NS(Attributed)String+Geometrics.m"; path = "Third Party/NS(Attributed)String+Geometrics.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +153,8 @@
 		7AD8EC0D14F851CA00FDF9E8 /* Third Party */ = {
 			isa = PBXGroup;
 			children = (
+				7AD8EC0D14F851CA00FDF9F5 /* NS(Attributed)String+Geometrics.m */,
+				7AD8EC0D14F851CA00FDF9F4 /* NS(Attributed)String+Geometrics.h */,
 				7AD8EC0D14F851CA00FDF9EA /* MAAttachedWindow.m */,
 				7AD8EC0D14F851CA00FDF9E9 /* MAAttachedWindow.h */,
 			);
@@ -244,6 +249,7 @@
 				7AB5CD7C15014F59007B3F02 /* OCShellConsoleTextView.m in Sources */,
 				7AD8EC0D14F851CA00FDF9EB /* MAAttachedWindow.m in Sources */,
 				7AD8EC0D14F851CA00FDF9F1 /* OCShellTooltipOutputController.m in Sources */,
+				7AD8EC0D14F851CA00FDF9F6 /* NS(Attributed)String+Geometrics.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
