@@ -67,6 +67,7 @@
 			// We are anchoring to a selection (not a single cursor); align it in the middle
 			insertionPoint.x += lroundf(screenRect.size.width / 2);
 		}
+		// TODO: figure out how to avoid overlapping tooltips when there are multiple on screen?
 		// Make sure our text doesn't exceed 250 characters (total width accommodates 256, but that never wraps right)
 		if ([outputString length] > 250) {
 			outputString = [NSString stringWithFormat:@"%@ ...", [[outputString substringToIndex:246] stringByTrimmingWhitespaceAndNewlines]];

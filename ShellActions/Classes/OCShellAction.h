@@ -64,6 +64,7 @@
  *         would be 0,10
  *       * Multiple ranges can be separated by linebreaks or &:
  *         0,10&12,5
+ *   - tooltip: STDOUT will be displayed in a tooltip anchored to the selection (maximum 250 characters)
  *   - log: STDOUT will be output straight to the Console (using NSLog)
  *   - html: STDOUT will be rendered as HTML in a new window. Any relative links
  *     will resolve using EDITOR_SUGAR_PATH as the base URL
