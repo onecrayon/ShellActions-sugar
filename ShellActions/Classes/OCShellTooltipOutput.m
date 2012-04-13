@@ -1,12 +1,12 @@
 //
-//  OCShellTooltipOutputController.m
+//  OCShellTooltipOutput.m
 //  ShellActions
 //
 //  Created by Ian Beck on 04/10/12.
 //  Copyright 2012 One Crayon. All rights reserved.
 //
 
-#import "OCShellTooltipOutputController.h"
+#import "OCShellTooltipOutput.h"
 #import "NS(Attributed)String+Geometrics.h"
 
 #import <NSString+MRFoundation.h>
@@ -19,9 +19,9 @@
 @property(readonly) id tab;
 @end
 
-@implementation OCShellTooltipOutputController
+@implementation OCShellTooltipOutput
 
-- (OCShellTooltipOutputController *)init {
+- (OCShellTooltipOutput *)init {
 	self = [super init];
 	if (self) {
 		view = [[NSView alloc] initWithFrame:NSMakeRect(0, 0, 478, 34)];

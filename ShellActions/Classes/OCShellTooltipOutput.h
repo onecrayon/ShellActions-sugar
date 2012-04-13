@@ -1,5 +1,5 @@
 //
-//  OCShellTooltipOutputController.h
+//  OCShellTooltipOutput.h
 //  ShellActions
 //
 //  Created by Ian Beck on 04/10/12.
@@ -10,7 +10,7 @@
 #import "MAAttachedWindow.h"
 
 
-@interface OCShellTooltipOutputController : NSObject {
+@interface OCShellTooltipOutput : NSObject {
 @private
 	NSView *view;
 	NSTextView *labelText;

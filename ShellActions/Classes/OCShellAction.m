@@ -11,7 +11,7 @@
 #import "NSMutableDictionary+OCSettingAdditions.h"
 #import "OCShellHTMLOutputController.h"
 #import "OCShellConsoleOutputController.h"
-#import "OCShellTooltipOutputController.h"
+#import "OCShellTooltipOutput.h"
 
 #import <EspressoTextActions.h>
 #import <EspressoTextCore.h>
@@ -279,7 +279,7 @@ static void *threadFunction(NSPipe *pipe) {
 		NSRange aggregateRange = NSMakeRange(0, 0);
 		BOOL multipleSelectionsToSnippet = NO;
 		NSMutableString *interimText;
-		OCShellTooltipOutputController *tooltip;
+		OCShellTooltipOutput *tooltip;
 		for (NSValue *rangeValue in ranges) {
 			range = [rangeValue rangeValue];
 			// Setup our per-loop environment variables
@@ -376,7 +376,7 @@ static void *threadFunction(NSPipe *pipe) {
 				[aggregateOutput appendString:outputStr];
 			} else if ([output isEqualToString:@"tooltip"] && [outputStr length] > 0) {
 				// Create our tooltip and anchor it to this particular selection
-				tooltip = [[OCShellTooltipOutputController alloc] init];
+				tooltip = [[OCShellTooltipOutput alloc] init];
 				[tooltip displayString:outputStr inTextActionContext:context forRange:range];
 				[tooltip release];
 			}
