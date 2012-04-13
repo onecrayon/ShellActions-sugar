@@ -66,6 +66,7 @@ You can, of course, use any of the elements available in [Action XML definitions
     * _input_ (default): STDOUT will replace the input
     * _document_: STDOUT will replace the document
     * _range_: STDOUT will represent one or more ranges to select. Formatting for ranges is `index,length`. So if you wanted to select the first ten characters of the document you would output `0,10`. You can select multiple ranges by separating them with a linebreak or `&` character: `0,10&12,5`
+    * _tooltip_: STDOUT will be displayed in a tooltip anchored to the selection (maximum 250 characters)
     * _log_: STDOUT will be output straight to Console.app
     * _html_: STDOUT will be rendered as HTML in a new window. Any relative URLs will resolve using EDITOR\_SUGAR\_PATH as the base URL (so you can store shared CSS or images in your Sugar). Any links clicked will open in the user's default browser, although unadorned anchor links will work to navigate within the page (for instance, `<a href="#top">To top</a>` will not open a browser).
     * _console_: STDOUT will be displayed as plain text in a new window
@@ -138,6 +139,12 @@ Have fun!
 
 ## Changelog
 
+**1.1**:
+
+* New experimental tooltip output option when working with TextActions
+* EDITOR\_LINE\_INDEX now properly reports the correct index (was previously off by one)
+* Many thanks to Matt Gemmel and Jerry Krinock for their excellent open source code!
+
 **1.0**:
 
 * Initial release
@@ -147,6 +154,9 @@ Have fun!
 * Access extra information in special environment variables
 
 ## MIT License
+
+[MAAttachedWindow](http://mattgemmell.com/2007/10/03/maattachedwindow-nswindow-subclass/) (c) Matt Gemmel under a custom license: <http://mattgemmell.com/license/>
+[NS(Attributed)String+Geometrics](https://github.com/jerrykrinock/CategoriesObjC) (c) Jerry Krinock, released as open source
 
 Copyright (c) 2012 Ian Beck
 
