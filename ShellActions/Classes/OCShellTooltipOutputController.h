@@ -12,16 +12,17 @@
 
 @interface OCShellTooltipOutputController : NSViewController {
 @private
-	NSTextField *labelText;
+	NSTextView *labelText;
 	MAAttachedWindow *tooltipWindow;
 	NSWindow *rootWindow;
+	id eventMonitor;
 }
 
-@property(retain) IBOutlet NSTextField *labelText;
+@property(retain) IBOutlet NSTextView *labelText;
 
 + (id)sharedController;
 
 - (void)displayString:(NSString *)outputString inContext:(id)context;
--(void)clearTooltip;
+- (void)clearTooltip;
 
 @end

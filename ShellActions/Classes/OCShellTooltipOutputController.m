@@ -7,6 +7,7 @@
 //
 
 #import "OCShellTooltipOutputController.h"
+#import "NS(Attributed)String+Geometrics.h"
 
 
 // HACK: these are not exposed in the public Espresso API, but we need them to properly locate the root project directory
@@ -18,7 +19,6 @@
 @implementation OCShellTooltipOutputController
 
 @synthesize labelText;
-
 
 static OCShellTooltipOutputController *sharedObject = nil;
 
@@ -35,16 +35,18 @@ static OCShellTooltipOutputController *sharedObject = nil;
 	MRRelease(labelText);
 	MRRelease(tooltipWindow);
 	MRRelease(rootWindow);
+	if (eventMonitor) {
+		[NSEvent removeMonitor:eventMonitor];
+	}
+	MRRelease(eventMonitor);
 	[super dealloc];
 }
 
 - (void)displayString:(NSString *)outputString inContext:(id)context {
-	NSLog(@"Trying to display string: %@", outputString);
 	// Grab the active text view, and verify it is indeed a text view
 	rootWindow = [context windowForSheet];
 	id activeView = [[rootWindow tab] initialFirstResponder];
 	if ([[activeView className] isEqualToString:@"EKTextView"]) {
-		NSLog(@"Starting tooltip...");
 		[self clearTooltip];
 		/*
 		Many thanks to Bavarious for this code:
@@ -56,21 +58,35 @@ static OCShellTooltipOutputController *sharedObject = nil;
 		// The origin is the lower left corner of the frame rectangle
 		// containing the insertion point
 		NSPoint insertionPoint = screenRect.origin;
-		// Set our string
-		[labelText setStringValue:outputString];
+		// Make sure our text doesn't exceed 256 characters
+		if ([outputString length] > 256) {
+			outputString = [NSString stringWithFormat:@"%@ ...", [outputString substringToIndex:257]];
+		}
+		// Set our string, and resize our text view
+		[labelText setString:outputString];
+		// Resize the window based on the size of the text, and truncate if necessary
+		NSSize textSize = [outputString sizeForWidth:300 height:600 font:[labelText font]];
+		// Adjust sizes for padding (10px all sides)
+		textSize.width += 20;
+		textSize.height += 6;
+		[[self view] setFrameSize:textSize];
 		// Initialize our tooltip
 		tooltipWindow = [[MAAttachedWindow alloc] initWithView:[self view] attachedToPoint:insertionPoint];
 		[labelText setTextColor:[tooltipWindow borderColor]];
-		// TODO: resize the window based on the size of the text, and truncate if necessary
 		// Display
 		[rootWindow addChildWindow:tooltipWindow ordered:NSWindowAbove];
 		[tooltipWindow orderFront:self];
-		// TODO: How the hell do I dismiss this window? Nothing I've tried remotely works
+		// Dismiss the tooltip if the user clicks, scrolls, or uses the keyboard
+		eventMonitor = [NSEvent addLocalMonitorForEventsMatchingMask:NSLeftMouseDownMask|NSRightMouseDownMask|NSKeyDownMask|NSScrollWheelMask|NSOtherMouseDownMask handler:^(NSEvent *event) {
+			[self clearTooltip];
+			[NSEvent removeMonitor:eventMonitor];
+			// Make sure the event propagates along its way to be handled normally
+			return event;
+		}];
 	}
 }
 
--(void)clearTooltip {
-	NSLog(@"Trying to clear tooltip...");
+- (void)clearTooltip {
 	if (tooltipWindow) {
 		[rootWindow removeChildWindow:tooltipWindow];
 		[tooltipWindow orderOut:self];
