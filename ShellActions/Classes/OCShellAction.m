@@ -279,6 +279,7 @@ static void *threadFunction(NSPipe *pipe) {
 		NSRange aggregateRange = NSMakeRange(0, 0);
 		BOOL multipleSelectionsToSnippet = NO;
 		NSMutableString *interimText;
+		OCShellTooltipOutputController *tooltip;
 		for (NSValue *rangeValue in ranges) {
 			range = [rangeValue rangeValue];
 			// Setup our per-loop environment variables
@@ -287,7 +288,7 @@ static void *threadFunction(NSPipe *pipe) {
 			[env addObjectOrEmptyString:[[context string] substringWithRange:[[context lineStorage] lineRangeForRange:NSMakeRange(range.location, 0)]] forKey:@"EDITOR_CURRENT_LINE"];
 			eLineNumber = [[context lineStorage] lineNumberForIndex:range.location];
 			[env addObjectOrEmptyString:[NSString stringWithFormat:@"%lu", (unsigned long)eLineNumber] forKey:@"EDITOR_LINE_NUMBER"];
-			eLineIndex = range.location - [[context lineStorage] lineRangeForLineNumber:eLineNumber].location - 1;
+			eLineIndex = range.location - [[context lineStorage] lineRangeForLineNumber:eLineNumber].location;
 			[env addObjectOrEmptyString:[NSString stringWithFormat:@"%lu", (unsigned long)eLineIndex] forKey:@"EDITOR_LINE_INDEX"];
 			NSString *eActiveZone = nil;
 			if ([[context syntaxTree] zoneAtCharacterIndex:range.location] != nil) {
@@ -370,9 +371,14 @@ static void *threadFunction(NSPipe *pipe) {
 			} else if ([output isEqualToString:@"log"]) {
 				NSLog(@"OCShellAction: Processing selection #%lu", (unsigned long)rangeNumber);
 				NSLog(@"%@", outputStr);
-			} else if ([output isEqualToString:@"console"] || [output isEqualToString:@"html"] || [output isEqualToString:@"tooltip"]) {
+			} else if ([output isEqualToString:@"console"] || [output isEqualToString:@"html"]) {
 				// If we are outputting to a console, HTML window, or tooltip, then just aggregate everything
 				[aggregateOutput appendString:outputStr];
+			} else if ([output isEqualToString:@"tooltip"] && [outputStr length] > 0) {
+				// Create our tooltip and anchor it to this particular selection
+				tooltip = [[OCShellTooltipOutputController alloc] init];
+				[tooltip displayString:outputStr inTextActionContext:context forRange:range];
+				[tooltip release];
 			}
 			
 			// Before we loop again, reset our output
@@ -403,9 +409,6 @@ static void *threadFunction(NSPipe *pipe) {
 		} else if ([output isEqualToString:@"console"] || [output isEqualToString:@"html"]) {
 			// Save our aggregateOutput into the finalOutput variable (process this outside of the conditional, since it's identical for both types of actions
 			finalOutput = aggregateOutput;
-		} else if ([output isEqualToString:@"tooltip"] && [aggregateOutput length] > 0) {
-			// Show a tooltip!
-			[[OCShellTooltipOutputController sharedController] displayString:aggregateOutput inContext:context];
 		}
 	} else {
 		// Prep our list of selected URLs

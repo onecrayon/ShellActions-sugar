@@ -10,19 +10,15 @@
 #import "MAAttachedWindow.h"
 
 
-@interface OCShellTooltipOutputController : NSViewController {
+@interface OCShellTooltipOutputController : NSObject {
 @private
+	NSView *view;
 	NSTextView *labelText;
 	MAAttachedWindow *tooltipWindow;
 	NSWindow *rootWindow;
 	id eventMonitor;
 }
 
-@property(retain) IBOutlet NSTextView *labelText;
-
-+ (id)sharedController;
-
-- (void)displayString:(NSString *)outputString inContext:(id)context;
-- (void)clearTooltip;
+- (void)displayString:(NSString *)outputString inTextActionContext:(id)context forRange:(NSRange)range;
 
 @end
