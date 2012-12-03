@@ -33,12 +33,12 @@
 	if (extraChars != nil) {
 		[legalChars formUnionWithCharacterSet:extraChars];
 	}
-	NSString *lineText = nil;
+	NSString *lineText;
 	
 	// Init non-pointer variables
-	NSUInteger maxindex = [[self string] length] - 1;
+	NSInteger maxindex = [[self string] length] - 1;
 	unichar character;
-	BOOL inword = NO;
+	BOOL inword;
 	NSInteger index = (NSInteger)cursor;
 	NSUInteger firstindex, lastindex;
 	// Vars for checking if the line ends with an HTML tag
@@ -47,12 +47,12 @@
 	
 	if (index < maxindex) {
 		// Check if index is mid-word
-		character = [[self string] characterAtIndex:index+1];
+		character = [[self string] characterAtIndex:(NSUInteger) (index+1)];
 		if ([legalChars characterIsMember:character]) {
 			inword = TRUE;
 			// Parse forward until we hit the end of the word or document
 			while (inword) {
-				character = [[self string] characterAtIndex:index];
+				character = [[self string] characterAtIndex:(NSUInteger) index];
 				// If word character, append and advance
 				if ([legalChars characterIsMember:character]) {
 					[word appendFormat:@"%C", character];
@@ -73,9 +73,9 @@
 	}
 	// Set the last index of the word
 	if (index <= maxindex) {
-		lastindex = index - 1;
+		lastindex = (NSUInteger) (index - 1);
 	} else {
-		lastindex = index;
+		lastindex = (NSUInteger) index;
 	}
 	// Ready to go backward, so reset index to one less than cursor location
 	index = cursor - 1;
@@ -83,14 +83,14 @@
 	if (index >= 0) {
 		inword = YES;
 		while (inword) {
-			character = [[self string] characterAtIndex:index];
+			character = [[self string] characterAtIndex:(NSUInteger) index];
 			
 			// Impossible for the line to the index to be an HTML tag if the character isn't a caret
 			if (character != '>') {
 				lineEndsWithTag = NO;
 			} else {
-				linestart = [[self lineStorage] lineStartIndexLessThanIndex:index];
-				lineText = [[self string] substringWithRange:NSMakeRange(linestart, index - linestart + 1)];
+				linestart = [[self lineStorage] lineStartIndexLessThanIndex:(NSUInteger) index];
+				lineText = [[self string] substringWithRange:NSMakeRange(linestart, (NSUInteger) (index - linestart + 1))];
 				// Not much point in loading up matches, so here's a regex approximation using NSPredicate
 				// NSPredicate regex test courtesy of: http://www.stiefels.net/2007/01/24/regular-expressions-for-nsstring/
 				// Using double backslashes to escape them
@@ -98,7 +98,6 @@
 				NSPredicate *regextest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
 				// Test it!
 				lineEndsWithTag = [regextest evaluateWithObject:lineText];
-				lineText = nil;
 			}
 			
 			if ([legalChars characterIsMember:character] && !lineEndsWithTag) {
@@ -113,7 +112,7 @@
 		}
 	}
 	// Since index is left-aligned and we've overcompensated, need to increment +1
-	firstindex = index + 1;
+	firstindex = (NSUInteger) (index + 1);
 	// Switch last index to length for use in range
     lastindex = lastindex - firstindex;
 	
