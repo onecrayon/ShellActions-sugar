@@ -7,7 +7,6 @@
 //
 
 #import "OCShellAction.h"
-#import "NSObject+OCTextActionContextAdditions.h"
 #import "NSMutableDictionary+OCSettingAdditions.h"
 #import "OCShellHTMLOutputController.h"
 #import "OCShellConsoleOutputController.h"
@@ -27,6 +26,12 @@
 @interface NSObject (OCShellActionPathInfo)
 @property(readonly) NSURL *contextDirectoryURL;
 @property(readonly) id document;
+@end
+
+// This is defined in TEA, but we need a category to prevent compiling errors
+@interface NSObject (OCTextActionContextAdditions)
+- (NSString *)getWordAtIndex:(NSUInteger)cursor range:(NSRange *)range;
+- (NSString *)getWordAtIndex:(NSUInteger)cursor allowExtraCharacters:(NSCharacterSet *)extraChars range:(NSRange *)range;
 @end
 
 /*

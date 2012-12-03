@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		7A1BA5F714FEA1CA007860E6 /* OCShellHTMLOutputWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A1BA5F614FEA1CA007860E6 /* OCShellHTMLOutputWindow.xib */; };
 		7A7FA5AD14F852B30079E541 /* NSMutableDictionary+OCSettingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7FA5AA14F852B30079E541 /* NSMutableDictionary+OCSettingAdditions.m */; };
-		7A7FA5AE14F852B30079E541 /* NSObject+OCTextActionContextAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7FA5AC14F852B30079E541 /* NSObject+OCTextActionContextAdditions.m */; };
 		7A7FA5B114F853500079E541 /* OCShellAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7FA5B014F853500079E541 /* OCShellAction.m */; };
 		7AB5CD70150149E6007B3F02 /* OCShellConsoleOutputWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AB5CD6F150149E6007B3F02 /* OCShellConsoleOutputWindow.xib */; };
 		7AB5CD7315014B76007B3F02 /* OCShellConsoleOutputController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB5CD7215014B76007B3F02 /* OCShellConsoleOutputController.m */; };
@@ -26,8 +25,6 @@
 		7A1BA5F614FEA1CA007860E6 /* OCShellHTMLOutputWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OCShellHTMLOutputWindow.xib; sourceTree = "<group>"; };
 		7A7FA5A914F852B30079E541 /* NSMutableDictionary+OCSettingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSMutableDictionary+OCSettingAdditions.h"; path = "Classes/NSMutableDictionary+OCSettingAdditions.h"; sourceTree = "<group>"; };
 		7A7FA5AA14F852B30079E541 /* NSMutableDictionary+OCSettingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSMutableDictionary+OCSettingAdditions.m"; path = "Classes/NSMutableDictionary+OCSettingAdditions.m"; sourceTree = "<group>"; };
-		7A7FA5AB14F852B30079E541 /* NSObject+OCTextActionContextAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+OCTextActionContextAdditions.h"; path = "Classes/NSObject+OCTextActionContextAdditions.h"; sourceTree = "<group>"; };
-		7A7FA5AC14F852B30079E541 /* NSObject+OCTextActionContextAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+OCTextActionContextAdditions.m"; path = "Classes/NSObject+OCTextActionContextAdditions.m"; sourceTree = "<group>"; };
 		7A7FA5AF14F853500079E541 /* OCShellAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OCShellAction.h; path = Classes/OCShellAction.h; sourceTree = "<group>"; };
 		7A7FA5B014F853500079E541 /* OCShellAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OCShellAction.m; path = Classes/OCShellAction.m; sourceTree = "<group>"; };
 		7AB5CD6F150149E6007B3F02 /* OCShellConsoleOutputWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OCShellConsoleOutputWindow.xib; sourceTree = "<group>"; };
@@ -68,8 +65,6 @@
 			children = (
 				7A7FA5A914F852B30079E541 /* NSMutableDictionary+OCSettingAdditions.h */,
 				7A7FA5AA14F852B30079E541 /* NSMutableDictionary+OCSettingAdditions.m */,
-				7A7FA5AB14F852B30079E541 /* NSObject+OCTextActionContextAdditions.h */,
-				7A7FA5AC14F852B30079E541 /* NSObject+OCTextActionContextAdditions.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -238,7 +233,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A7FA5AD14F852B30079E541 /* NSMutableDictionary+OCSettingAdditions.m in Sources */,
-				7A7FA5AE14F852B30079E541 /* NSObject+OCTextActionContextAdditions.m in Sources */,
 				7A7FA5B114F853500079E541 /* OCShellAction.m in Sources */,
 				7AC981BE14FEAB5100EB787A /* OCShellHTMLOutputController.m in Sources */,
 				7AB5CD7315014B76007B3F02 /* OCShellConsoleOutputController.m in Sources */,
