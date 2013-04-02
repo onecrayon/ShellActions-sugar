@@ -10,10 +10,11 @@ ShellActions.sugar enables you to add custom text and file actions to Espresso w
 2. Unzip the downloaded file (if your browser doesn't do it for you)
 3. Double click the ShellActions.sugar file to install it
 
-### Known Sugars that require ShellActions.sugar
+### Sugars that depend on ShellActions.sugar
 
 * [HTMLBundle.sugar](https://github.com/onecrayon/HTMLBundle.sugar)
 * [Prefixr.sugar](https://github.com/onecrayon/Prefixr.sugar)
+* [Kaleidoscope.sugar](https://github.com/onecrayon/Kaleidoscope.sugar)
 
 ## Writing your own shell actions
 
