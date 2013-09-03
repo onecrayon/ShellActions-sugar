@@ -4,7 +4,7 @@ ShellActions.sugar enables you to add custom text and file actions to Espresso w
 
 ## Installation
 
-**Requires Espresso 2**
+**Requires Espresso 2.1**
 
 1. [Download ShellActions.sugar](https://github.com/downloads/onecrayon/ShellActions-sugar/ShellActions.sugar.zip)
 2. Unzip the downloaded file (if your browser doesn't do it for you)
@@ -15,6 +15,7 @@ ShellActions.sugar enables you to add custom text and file actions to Espresso w
 * [HTMLBundle.sugar](https://github.com/onecrayon/HTMLBundle.sugar)
 * [Prefixr.sugar](https://github.com/onecrayon/Prefixr.sugar)
 * [Kaleidoscope.sugar](https://github.com/onecrayon/Kaleidoscope.sugar)
+* [ConTeXT.sugar](https://github.com/brosensteiner/ConTeXt.sugar)
 
 ## Writing your own shell actions
 
@@ -57,7 +58,7 @@ You can, of course, use any of the elements available in [Action XML definitions
 * `<input>`: what will be passed to STDIN. Accepts:
     * _selection_ (default)
     * _document_
-    * _nothing_
+    * _nothing_ (**important**: if your script does not read from STDIN, you must choose this to prevent Espresso from locking up if the user runs your script on a very large document or selection)
 * `<alternate>`: if your input is `selection`, this will be used as the fallback if there is no selection. Accepts:
     * _document_
     * _line_ (the line around the cursor)
