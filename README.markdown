@@ -97,27 +97,27 @@ You may write your shell script in whatever language you prefer. Regardless of l
 
 The following environment variables are available to all scripts:
 
-* _EDITOR\_SUGAR\_PATH_: the path to the root of the action's Sugar
-* _EDITOR\_DIRECTORY\_PATH_: the path to the most specific possible context directory
-* _EDITOR\_PROJECT\_PATH_: the path to the root project folder
-* _EDITOR\_PATH_: the path to the active file (only available in FileActions if there is only a single file)
-* _EDITOR\_FILENAME_: the filename of the active file (only available if EDITOR\_PATH is set)
+* *EDITOR\_SUGAR\_PATH*: the path to the root of the action's Sugar
+* *EDITOR\_DIRECTORY\_PATH*: the path to the most specific possible context directory
+* *EDITOR\_PROJECT\_PATH*: the path to the root project folder
+* *EDITOR\_PATH*: the path to the active file (only available in FileActions if there is only a single file)
+* *EDITOR\_FILENAME*: the filename of the active file (only available if EDITOR\_PATH is set)
 
 Path variables pointing to directories will _not_ include a trailing slash.
 
 The following variables are only available in TextActions:
 
-* _EDITOR\_CURRENT\_WORD_: the word around the cursor (or first index of the selection)
-* _EDITOR\_CURRENT\_LINE_: the line around the cursor (or first index of the selection)
-* _EDITOR\_LINE\_INDEX_: the zero-based index where the cursor falls in the line (or first index of the selection)
-* _EDITOR\_LINE\_NUMBER_: the number of the line around the cursor (or first index of the selection)
-* _EDITOR\_TAB\_STRING_: the string inserted when the user hits tab
-* _EDITOR\_LINE\_ENDING\_STRING_: the string inserted when the user hits enter
-* _EDITOR\_ROOT\_ZONE_: textual ID of the root syntax zone
-* _EDITOR\_ACTIVE\_ZONE_: textual ID of the active syntax zone
-* _EDITOR\_SELECTIONS\_TOTAL_: the total number of selections in the document
-* _EDITOR\_SELECTION\_NUMBER_: the number of the selection currently being processed
-* _EDITOR\_SELECTION\_RANGE_: the range of the selected text in the document; uses the same formatting as the "range" output (index,length). So if the first ten characters are selected, this will be "0,10" (without the quotes, of course)
+* *EDITOR\_CURRENT\_WORD*: the word around the cursor (or first index of the selection)
+* *EDITOR\_CURRENT\_LINE*: the line around the cursor (or first index of the selection)
+* *EDITOR\_LINE\_INDEX*: the zero-based index where the cursor falls in the line (or first index of the selection)
+* *EDITOR\_LINE\_NUMBER*: the number of the line around the cursor (or first index of the selection)
+* *EDITOR\_TAB\_STRING*: the string inserted when the user hits tab
+* *EDITOR\_LINE\_ENDING\_STRING*: the string inserted when the user hits enter
+* *EDITOR\_ROOT\_ZONE*: textual ID of the root syntax zone
+* *EDITOR\_ACTIVE\_ZONE*: textual ID of the active syntax zone
+* *EDITOR\_SELECTIONS\_TOTAL*: the total number of selections in the document
+* *EDITOR\_SELECTION\_NUMBER*: the number of the selection currently being processed
+* *EDITOR\_SELECTION\_RANGE*: the range of the selected text in the document; uses the same formatting as the "range" output (index,length). So if the first ten characters are selected, this will be "0,10" (without the quotes, of course)
 
 How to access environment variables and standard input/output will vary depending on the language you are using. Here's two crowd favorites:
 
