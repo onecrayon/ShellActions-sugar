@@ -26,6 +26,7 @@
 @interface NSObject (OCShellActionPathInfo)
 @property(readonly) NSURL *contextDirectoryURL;
 @property(readonly) id document;
+@property(readonly) id projectContext;
 @end
 
 // This is defined in TEA, but we need a category to prevent compiling errors
@@ -229,7 +230,12 @@ static void *threadFunction(NSPipe *pipe) {
 	// Setup eProjectPath
 	id doc = [[context windowForSheet] document];
 	if ([[doc className] isEqualToString:@"ESProjectDocument"]) {
+		// This grabs the project URL for Espresso 2.0-2.1
 		eProjectPath = [[doc directoryURL] path];
+	} else if ([[context documentContext] projectContext]) {
+		// This grabs the project URL for Espresso 2.2+
+		NSLog(@"USING PROJECT CONTEXT");
+		eProjectPath = [[[[context documentContext] projectContext] directoryURL] path];
 	}
 	
 	// Assign our universal variables to the dictionary
