@@ -234,7 +234,6 @@ static void *threadFunction(NSPipe *pipe) {
 		eProjectPath = [[doc directoryURL] path];
 	} else if ([[context documentContext] projectContext]) {
 		// This grabs the project URL for Espresso 2.2+
-		NSLog(@"USING PROJECT CONTEXT");
 		eProjectPath = [[[[context documentContext] projectContext] directoryURL] path];
 	}
 	
