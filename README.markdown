@@ -17,6 +17,7 @@ ShellActions.sugar enables you to add custom text and file actions to Espresso w
 * [Kaleidoscope.sugar](https://github.com/onecrayon/Kaleidoscope.sugar)
 * [ConTeXT.sugar](https://github.com/brosensteiner/ConTeXt.sugar)
 * [Validatorian.sugar](https://github.com/onecrayon/Validatorian.sugar)
+* [BOM-B-Gone.sugar](https://github.com/onecrayon/BOM-B-Gone.sugar)
 
 ## Writing your own shell actions
 
