@@ -15,6 +15,7 @@
 }
 
 - (void)appendString:(NSString *)str;
+- (void)appendError:(NSString *)str;
 - (void)clearContents;
 
 @end

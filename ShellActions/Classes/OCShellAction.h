@@ -42,9 +42,13 @@
  * - <empty-selection>: whether your script can handle an empty selection:
  *   - true (default)
  *   - false
- * - <suppress-errors>: whether script errors will be output or suppressed and logged
+ * - <suppress-errors>: whether script errors will be raised as exceptions or suppressed and logged
  *   - true (default)
  *   - false
+ * - <error-output>: how the contents of STDERR will be output if suppress-errors is true
+ *   - log (default): logged to Console.app
+ *   - console: plain text in a new window
+ *   - html: rendered as HTML in a new window
  * 
  * TextAction <setup> options:
  * - <input>: the contents of STDIN. Accepts:
@@ -118,6 +122,7 @@
 	NSString *output;
 	NSString *outputFormat;
 	NSString *bundlePath;
+	NSString *errorOutput;
 	BOOL allowMultipleSelections;
 	BOOL allowSingleSelection;
 	BOOL allowNoSelection;

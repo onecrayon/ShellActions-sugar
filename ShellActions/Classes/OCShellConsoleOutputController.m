@@ -34,6 +34,11 @@ static OCShellConsoleOutputController *sharedObject = nil;
 	[self showWindow:self];
 }
 
+- (void)displayError:(NSString *)outputString {
+	[outputText appendError:outputString];
+	[self showWindow:self];
+}
+
 - (IBAction)clearConsole:(id)sender {
 	[outputText clearContents];
 }

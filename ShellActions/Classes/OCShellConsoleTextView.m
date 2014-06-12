@@ -13,6 +13,7 @@
 @implementation OCShellConsoleTextView
 
 static NSMutableDictionary *textAttr = nil;
+static NSMutableDictionary *errAttr = nil;
 
 - (void)awakeFromNib {
 	NSSize inset = [self textContainerInset];
@@ -34,6 +35,12 @@ static NSMutableDictionary *textAttr = nil;
 		[textAttr setObject:paraStyling forKey:NSParagraphStyleAttributeName];
 		[textAttr setObject:[NSColor blackColor] forKey:NSForegroundColorAttributeName];
 		
+		errAttr = [[self typingAttributes] mutableCopy];
+		[errAttr setObject:paraStyling forKey:NSParagraphStyleAttributeName];
+		[errAttr setObject:[NSColor redColor] forKey:NSForegroundColorAttributeName];
+		[errAttr setObject:[NSFont fontWithName:@"EspressoMono-Bold" size:11.0] forKey:NSFontAttributeName];
+		
+		
 		[paraStyling release];
 	}
 }
@@ -43,18 +50,24 @@ static NSMutableDictionary *textAttr = nil;
     [super dealloc];
 }
 
-- (void)appendString:(NSString *)str {
+- (void)appendString:(NSString *)str asError:(BOOL)isError {
 	// First, switch all the old text to gray
 	[[self textStorage] addAttribute:NSForegroundColorAttributeName value:[NSColor grayColor] range:NSMakeRange(0, [[self textStorage] length])];
 	NSUInteger originalEnd = [[self textStorage] length];
 	// Create our attributed string
 	NSAttributedString *attrStr;
+	NSDictionary *attributes;
+	if (isError) {
+		attributes = errAttr;
+	} else {
+		attributes = textAttr;
+	}
 	if (originalEnd > 0) {
 		// Make sure to add a double linebreak to separate it out visually from the rest
-		attrStr = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"\n\n%@", [str stringByTrimmingWhitespaceAndNewlines]] attributes:textAttr];
+		attrStr = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"\n\n%@", [str stringByTrimmingWhitespaceAndNewlines]] attributes:attributes];
 	} else {
 		// No previous content, so just insert what we've got
-		attrStr = [[NSAttributedString alloc] initWithString:[str stringByTrimmingWhitespaceAndNewlines] attributes:textAttr];
+		attrStr = [[NSAttributedString alloc] initWithString:[str stringByTrimmingWhitespaceAndNewlines] attributes:attributes];
 	}
 	// Append our string!
 	[[self textStorage] beginEditing];
@@ -65,6 +78,14 @@ static NSMutableDictionary *textAttr = nil;
 		[self scrollRangeToVisible:NSMakeRange(originalEnd + 2, 0)];
 	}
 	[attrStr release];
+}
+
+- (void)appendString:(NSString *)str {
+	[self appendString:str asError:NO];
+}
+
+- (void)appendError:(NSString *)str {
+	[self appendString:str asError:YES];
 }
 
 - (void)clearContents {

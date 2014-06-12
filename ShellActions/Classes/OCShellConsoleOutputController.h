@@ -20,6 +20,7 @@
 + (id)sharedController;
 
 - (void)displayString:(NSString *)outputString;
+- (void)displayError:(NSString *)outputString;
 
 - (IBAction)clearConsole:(id)sender;
 

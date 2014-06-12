@@ -144,6 +144,11 @@ static void *threadFunction(NSPipe *pipe) {
 		} else {
 			suppressErrors = YES;
 		}
+		if ([dictionary objectForKey:@"error-output"]) {
+			errorOutput = [[[dictionary objectForKey:@"error-output"] lowercaseString] retain];
+		} else {
+			errorOutput = [@"log" retain];
+		}
     }
     
     return self;
@@ -156,6 +161,7 @@ static void *threadFunction(NSPipe *pipe) {
 	MRRelease(output);
 	MRRelease(outputFormat);
 	MRRelease(bundlePath);
+	MRRelease(errorOutput);
 	[super dealloc];
 }
 
@@ -494,7 +500,13 @@ static void *threadFunction(NSPipe *pipe) {
 - (void)processErrors {
 	if ([errString length]) {
 		if (suppressErrors) {
-			NSLog(@"%@ (%@): %@", script, [bundlePath lastPathComponent], errString);
+			if ([errorOutput isEqualToString:@"log"]) {
+				NSLog(@"%@ (%@): %@", script, [bundlePath lastPathComponent], errString);
+			} else if ([errorOutput isEqualToString:@"console"]) {
+				[[OCShellConsoleOutputController sharedController] displayError:errString];
+			} else if ([errorOutput isEqualToString:@"html"]) {
+				[[OCShellHTMLOutputController sharedController] loadSource:errString withBaseURL:bundlePath];
+			}
 		} else {
 			[NSException raise:@"OCShellAction error" format:@"%@ (%@): %@", script, [bundlePath lastPathComponent], errString];
 		}
