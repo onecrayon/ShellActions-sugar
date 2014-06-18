@@ -6,14 +6,13 @@ ShellActions.sugar enables you to add custom text and file actions to Espresso w
 
 **Requires Espresso 2.1**
 
-1. [Download ShellActions.sugar](https://github.com/onecrayon/ShellActions-sugar/releases/download/v1.1.2/ShellActions.sugar.zip)
+1. [Download ShellActions.sugar](https://github.com/onecrayon/ShellActions-sugar/releases/download/v1.2.0/ShellActions.sugar.zip)
 2. Unzip the downloaded file (if your browser doesn't do it for you)
 3. Double click the ShellActions.sugar file to install it
 
 ### Sugars that depend on ShellActions.sugar
 
 * [HTMLBundle.sugar](https://github.com/onecrayon/HTMLBundle.sugar)
-* [Prefixr.sugar](https://github.com/onecrayon/Prefixr.sugar)
 * [Kaleidoscope.sugar](https://github.com/onecrayon/Kaleidoscope.sugar)
 * [ConTeXT.sugar](https://github.com/brosensteiner/ConTeXt.sugar)
 * [Validatorian.sugar](https://github.com/onecrayon/Validatorian.sugar)
@@ -45,6 +44,8 @@ You can, of course, use any of the elements available in [Action XML definitions
             <empty-selection>true</empty-selection>
             <!--Only set this to `false` if you want to be slapped in the face with errors-->
             <suppress-errors>true</suppress-errors>
+            <!--If suppress-errors is `true`, you can redirect errors where you wish-->
+            <error-output>log</error-output>
             
             <!--Applicable mainly for TextActions; default values shown-->
             <input>selection</input>
@@ -56,7 +57,6 @@ You can, of course, use any of the elements available in [Action XML definitions
 
 * `<script>`: your script's filename. Scripts must be stored in your Sugar's root-level Scripts folder
 * selection elements: these all default to true. Set one to `false` to disable this action in that scenario. For instance, if you include `<empty-selection>false</empty-selection>` your action will be disabled unless there is at least one selection.
-* `<suppress-errors>`: if you set this as `false`, any errors that occur will open a dialog in Espresso. Only useful for debugging, typically.
 * `<input>`: what will be passed to STDIN. Accepts:
     * _selection_ (default)
     * _document_
@@ -78,6 +78,12 @@ You can, of course, use any of the elements available in [Action XML definitions
 * `<output-format>`: only necessary if using `input` or `document` for your output. Specifies the format you are outputting:
     * _text_ (default): contents of STDOUT will be inserted as plain text
     * _snippet_: contents of STDOUT will be inserte as a CETextSnippet. **Note:** if the user has multiple selections, your output will be automatically aggregated into a single snippet and overwrite the whole range (leaving text between the existing selections alone). Make good use of the EDITOR\_SELECTIONS\_TOTAL and EDITOR\_SELECTION\_NUMBER environment variables to manage your tab stops!
+* `<suppress-errors>`: if you set this as `false`, any errors that occur will open a dialog in Espresso. Only useful for debugging, typically.
+* `<error-output>`: where STDERR should be output if `<suppress-errors>` is `true`. Accepts:
+    * _log_ (default): STDOUT will be output to Console.app
+    * _console_: STDERR will be displayed as plain text in a new window
+    * _html_: STDERR will be rendered as HTML in a new window (same behavior as `<output>`)
+    * _sheet_: STDERR will be output in a sheet attached to the current window
 
 Note that FileActions ignore `<input>`, `<alternate>`, and `<output-format>`, and they only accept "nothing" (default), "log", "html", or "console" for `<output>`.
 
@@ -88,7 +94,7 @@ You may write your shell script in whatever language you prefer. Regardless of l
 * You _must_ use a shebang to specify to the system how to execute the file
 * STDIN will be whatever you requested as input
 * STDOUT will be whatever your script needs to output
-* Anything written to STDERR will result in an error (by default just logged to Console.app)
+* Anything written to STDERR will result in an error (by default just logged to Console.app, but you can modify this behavior)
 * TextActions will be executed once for every selection
 * FileActions will be executed a single time, and receive a linebreak-delimited list of selected files via STDIN
 * Neither STDIN nor any environment variable is ever escaped for use on the shell! So be careful if you are working with bash/sh/etc. as anything in STDIN could potentially have a space, quotation mark, or other character with special meaning
@@ -143,6 +149,10 @@ Have fun!
 
 ## Changelog
 
+**1.2**
+
+* Support for displaying errors to the user using STDERR and `<error-output>`
+
 **1.1**:
 
 * New experimental tooltip output option when working with TextActions
@@ -162,7 +172,7 @@ Have fun!
 [MAAttachedWindow](http://mattgemmell.com/2007/10/03/maattachedwindow-nswindow-subclass/) (c) Matt Gemmel under a custom license: <http://mattgemmell.com/license/>
 [NS(Attributed)String+Geometrics](https://github.com/jerrykrinock/CategoriesObjC) (c) Jerry Krinock, released as open source
 
-Copyright (c) 2012 Ian Beck
+Copyright (c) 2012-2014 Ian Beck
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
