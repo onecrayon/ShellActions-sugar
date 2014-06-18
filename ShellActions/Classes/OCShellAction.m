@@ -105,7 +105,7 @@ static void *threadFunction(NSPipe *pipe) {
     self = [super init];
     if (self) {
 		// Grab our <setup> variables
-		script = [[dictionary objectForKey:@"script"]retain];
+		script = [[dictionary objectForKey:@"script"] retain];
 		if ([dictionary objectForKey:@"input"]) {
 			input = [[[dictionary objectForKey:@"input"] lowercaseString] retain];
 		} else {
@@ -352,7 +352,7 @@ static void *threadFunction(NSPipe *pipe) {
 			outputStr = [self runScriptWithInput:inputStr];
 			
 			// Handle the error output, if there is any
-			[self processErrors];
+			[self processErrorsWithContext:context];
 			
 			// Insert the output
 			if ([output isEqualToString:@"document"] || ([source isEqualToString:@"document"] && [output isEqualToString:@"input"])) {
@@ -439,7 +439,7 @@ static void *threadFunction(NSPipe *pipe) {
 		finalOutput = [self runScriptWithInput:fileList];
 		
 		// Handle the error output, if there is any
-		[self processErrors];
+		[self processErrorsWithContext:context];
 		
 		// If we are outputting to the log, do so
 		if ([output isEqualToString:@"log"]) {
@@ -497,7 +497,7 @@ static void *threadFunction(NSPipe *pipe) {
 	return [[[NSString alloc] initWithString:outputString] autorelease];
 }
 
-- (void)processErrors {
+- (void)processErrorsWithContext:(id)context {
 	if ([errString length]) {
 		if (suppressErrors) {
 			if ([errorOutput isEqualToString:@"log"]) {
@@ -506,6 +506,9 @@ static void *threadFunction(NSPipe *pipe) {
 				[[OCShellConsoleOutputController sharedController] displayError:errString];
 			} else if ([errorOutput isEqualToString:@"html"]) {
 				[[OCShellHTMLOutputController sharedController] loadSource:errString withBaseURL:bundlePath];
+			} else if ([errorOutput isEqualToString:@"sheet"]) {
+				NSAlert *errAlert = [NSAlert alertWithMessageText:[NSString stringWithFormat:@"%@ has encountered an error", [bundlePath lastPathComponent]] defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"%@", errString];
+				[errAlert beginSheetModalForWindow:[context windowForSheet] modalDelegate:nil didEndSelector:NULL contextInfo:NULL];
 			}
 		} else {
 			[NSException raise:@"OCShellAction error" format:@"%@ (%@): %@", script, [bundlePath lastPathComponent], errString];

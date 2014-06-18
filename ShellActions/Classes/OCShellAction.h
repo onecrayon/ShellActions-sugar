@@ -49,6 +49,7 @@
  *   - log (default): logged to Console.app
  *   - console: plain text in a new window
  *   - html: rendered as HTML in a new window
+ *   - sheet: output in a sheet attached to the current window
  * 
  * TextAction <setup> options:
  * - <input>: the contents of STDIN. Accepts:
@@ -131,7 +132,7 @@
 
 - (NSString *)findScript:(NSString *)fileName;
 - (NSString *)runScriptWithInput:(NSString *)input;
-- (void)processErrors;
+- (void)processErrorsWithContext:(id)context;
 - (NSArray *)parseRangesFromString:(NSString *)rangeString combineWithRangeValues:(NSArray *)rangeValues maxIndex:(NSUInteger)maxIndex;
 
 @end
