@@ -507,7 +507,7 @@ static void *threadFunction(NSPipe *pipe) {
 			} else if ([errorOutput isEqualToString:@"html"]) {
 				[[OCShellHTMLOutputController sharedController] loadSource:errString withBaseURL:bundlePath];
 			} else if ([errorOutput isEqualToString:@"sheet"]) {
-				NSAlert *errAlert = [NSAlert alertWithMessageText:[NSString stringWithFormat:@"%@ has encountered an error", [bundlePath lastPathComponent]] defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"%@", errString];
+				NSAlert *errAlert = [NSAlert alertWithMessageText:[NSString stringWithFormat:@"Message from %@", [bundlePath lastPathComponent]] defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"%@", errString];
 				[errAlert beginSheetModalForWindow:[context windowForSheet] modalDelegate:nil didEndSelector:NULL contextInfo:NULL];
 			}
 		} else {
