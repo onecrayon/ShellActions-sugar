@@ -6,7 +6,7 @@ ShellActions.sugar enables you to add custom text and file actions to Espresso w
 
 **Requires Espresso 2.1**
 
-1. [Download ShellActions.sugar](https://github.com/onecrayon/ShellActions-sugar/releases/download/v1.2.0/ShellActions.sugar.zip)
+1. [Download ShellActions.sugar](https://github.com/onecrayon/ShellActions-sugar/releases/download/v1.2.1/ShellActions.sugar.zip)
 2. Unzip the downloaded file (if your browser doesn't do it for you)
 3. Double click the ShellActions.sugar file to install it
 
@@ -46,6 +46,13 @@ You can, of course, use any of the elements available in [Action XML definitions
             <suppress-errors>true</suppress-errors>
             <!--If suppress-errors is `true`, you can redirect errors where you wish-->
             <error-output>log</error-output>
+            <!--Optional plist dictionary for passing config variables to shell scripts (see below)-->
+            <config>
+            	<dict>
+            		<key>custom-key</key>
+            		<string>custom value</string>
+            	</dict>
+            </config>
             
             <!--Applicable mainly for TextActions; default values shown-->
             <input>selection</input>
@@ -84,6 +91,7 @@ You can, of course, use any of the elements available in [Action XML definitions
     * _console_: STDERR will be displayed as plain text in a new window
     * _html_: STDERR will be rendered as HTML in a new window (same behavior as `<output>`)
     * _sheet_: STDERR will be output in a sheet attached to the current window
+* `<config>`: using plist dictionary formatting, you can specify custom configuration variables to pass to your shell scripts using this element. These variables will be available as environment variables with the prefix "CONFIG\_"
 
 Note that FileActions ignore `<input>`, `<alternate>`, and `<output-format>`, and they only accept "nothing" (default), "log", "html", or "console" for `<output>`.
 
@@ -127,6 +135,8 @@ The following variables are only available in TextActions:
 * *EDITOR\_SELECTION\_NUMBER*: the number of the selection currently being processed
 * *EDITOR\_SELECTION\_RANGE*: the range of the selected text in the document; uses the same formatting as the "range" output (index,length). So if the first ten characters are selected, this will be "0,10" (without the quotes, of course)
 
+If your XML includes a `<config>` element, then its keys will be available as environment variables with the prefix "CONFIG\_". For instance, for the example code above you would be able to access an environment variable named *CONFIG\_custom-key* with the value "custom value".
+
 How to access environment variables and standard input/output will vary depending on the language you are using. Here's two crowd favorites:
 
 **Python**
@@ -152,6 +162,7 @@ Have fun!
 **1.2**
 
 * Support for displaying errors to the user using STDERR and `<error-output>`
+* Support for passing configuration variables to shell scripts from XML
 
 **1.1**:
 
