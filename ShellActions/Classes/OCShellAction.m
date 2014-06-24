@@ -149,6 +149,9 @@ static void *threadFunction(NSPipe *pipe) {
 		} else {
 			errorOutput = [@"log" retain];
 		}
+		if ([dictionary objectForKey:@"config"]) {
+			configDict = [dictionary objectForKey:@"config"];
+		}
     }
     
     return self;
@@ -162,6 +165,7 @@ static void *threadFunction(NSPipe *pipe) {
 	MRRelease(outputFormat);
 	MRRelease(bundlePath);
 	MRRelease(errorOutput);
+	MRRelease(configDict);
 	[super dealloc];
 }
 
@@ -256,6 +260,13 @@ static void *threadFunction(NSPipe *pipe) {
 		// Also make sure that Python and Ruby can import/require items from ScriptLibraries
 		[env addObjectOrEmptyString:[bundlePath stringByAppendingPathComponent:@"ScriptLibraries"] forKey:@"PYTHONPATH"];
 		[env addObjectOrEmptyString:[bundlePath stringByAppendingPathComponent:@"ScriptLibraries"] forKey:@"RUBYLIB"];
+	}
+	
+	// Setup our configuration environment variables
+	if (configDict != nil) {
+		for (NSString *key in configDict) {
+			[env addObjectOrEmptyString:[configDict objectForKey:key] forKey:[NSString stringWithFormat:@"CONFIG_%@", key]];
+		}
 	}
 	
 	// We'll save our ultimate response and return it at the end

@@ -50,6 +50,7 @@
  *   - console: plain text in a new window
  *   - html: rendered as HTML in a new window
  *   - sheet: output in a sheet attached to the current window
+ * - <config>: a plist dictionary containing optional script-specific configuration options
  * 
  * TextAction <setup> options:
  * - <input>: the contents of STDIN. Accepts:
@@ -109,10 +110,19 @@
  * - EDITOR_SELECTION_RANGE: the range of the selected text in the document; uses
  *   the same formatting as the "range" output (index,length). So if the first ten
  *   characters are selected, this will be "0,10" (without the quotes)
- * 
- * TODO:
- * - Add better error handling. If an error is detected/thrown, the action needs
- *   to ensure that it exits cleanly
+ *
+ * If the <config> dictionary is included, there will be environment variables
+ * for each key with the prefix "CONFIG_". For instance, if this is in the XML:
+ *
+ *     <config>
+ *         <dict>
+ *             <key>favorite-food</key>
+ *             <string>spaghetti</string>
+ *         </dict>
+ *     </config>
+ *
+ * Then there will be an environment variable named "CONFIG_favorite-food" with
+ * the value "spaghetti".
  */
 
 @interface OCShellAction : NSObject {
@@ -124,6 +134,7 @@
 	NSString *outputFormat;
 	NSString *bundlePath;
 	NSString *errorOutput;
+	NSDictionary *configDict;
 	BOOL allowMultipleSelections;
 	BOOL allowSingleSelection;
 	BOOL allowNoSelection;
