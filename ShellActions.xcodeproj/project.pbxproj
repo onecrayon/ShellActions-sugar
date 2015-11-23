@@ -180,6 +180,7 @@
 		7AD8EBF514F851CA00FDF9E7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = MacRabbit;
 			};
 			buildConfigurationList = 7AD8EBF814F851CA00FDF9E7 /* Build configuration list for PBXProject "ShellActions" */;
@@ -250,11 +251,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_LINK_OBJC_RUNTIME = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = NS_BUILD_32_LIKE_64;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx;
+				SDKROOT = macosx10.7;
 			};
 			name = Debug;
 		};
@@ -262,18 +265,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_LINK_OBJC_RUNTIME = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = NS_BUILD_32_LIKE_64;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				SDKROOT = macosx;
+				SDKROOT = macosx10.7;
 			};
 			name = Release;
 		};
 		7AD8EC0C14F851CA00FDF9E7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				BUNDLE_LOADER = "$(ESPRESSO_PATH)/Contents/MacOS/Espresso";
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				ESPRESSO_PATH = /Applications/Espresso.app;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -282,6 +286,7 @@
 				GCC_PREFIX_HEADER = ShellActions/Prefix.pch;
 				HEADER_SEARCH_PATHS = "$(ESPRESSO_PATH)/Contents/Headers";
 				INFOPLIST_FILE = ShellActions/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.onecrayon.sugar.shellactions;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx10.7;
 				WRAPPER_EXTENSION = sugar;
@@ -291,8 +296,8 @@
 		7AD8EC0D14F851CA00FDF9E7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				BUNDLE_LOADER = "$(ESPRESSO_PATH)/Contents/MacOS/Espresso";
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ESPRESSO_PATH = /Applications/Espresso.app;
@@ -301,6 +306,7 @@
 				GCC_PREFIX_HEADER = ShellActions/Prefix.pch;
 				HEADER_SEARCH_PATHS = "$(ESPRESSO_PATH)/Contents/Headers";
 				INFOPLIST_FILE = ShellActions/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.onecrayon.sugar.shellactions;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx10.7;
 				WRAPPER_EXTENSION = sugar;
